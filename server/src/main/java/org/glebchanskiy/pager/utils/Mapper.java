@@ -9,7 +9,7 @@ public class Mapper {
     public MessageDTO toDto(Message message) {
         Integer id =  message.getId();
         String text = message.getText();
-        Integer user_id = message.getUserId();
+        String user_id = message.getUserId();
         return new MessageDTO(id, text, user_id);
     }
 

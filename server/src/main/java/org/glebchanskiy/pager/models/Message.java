@@ -21,10 +21,10 @@ public class Message {
     @Column(name = "text")
     private String text;
 
-    @Column(name = "user_id")
-    private Integer userId;
+    @Column(name = "username")
+    private String userId;
 
-    public Message(Integer id, String text, Integer userId) {
+    public Message(Integer id, String text, String userId) {
         this.id = id;
         this.text = text;
         this.userId = userId;

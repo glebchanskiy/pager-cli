@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MessageDTO {
-    public MessageDTO(Integer id, String text, Integer userId) {
+    public MessageDTO(Integer id, String text, String userId) {
         this.id = id;
         this.text = text;
         this.userId = userId;
@@ -15,5 +15,5 @@ public class MessageDTO {
 
     private Integer id;
     private String text;
-    private Integer userId;
+    private String userId;
 }

@@ -4,12 +4,14 @@ import org.glebchanskiy.pager.dto.MessageDTO;
 import org.glebchanskiy.pager.services.MessageService;
 import org.glebchanskiy.pager.utils.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -26,8 +28,8 @@ public class SharedChatController {
     }
 
     @GetMapping()
-    public List<MessageDTO> getAllMessages() {
-        return messageService.findAll().stream()
+    public List<MessageDTO> getAllMessages(@RequestParam Optional<Integer> limit) {
+        return messageService.findAllByOrderByLimit(limit.orElse(10)).stream()
                 .map(mapper::toDto)
                 .collect(Collectors.toList());
     }
