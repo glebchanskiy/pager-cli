@@ -8,7 +8,7 @@ create table shared_message
 alter table shared_message
     owner to postgres;
 
-create table "user"
+create table "users"
 (
     id       serial
              primary key,
@@ -16,10 +16,10 @@ create table "user"
     password varchar not null
 );
 
-alter table "user"
+alter table "users"
     owner to postgres;
 
 create unique index user_username_uindex
-    on "user" (username);
+    on "users" (username);
 
 
